@@ -5,7 +5,7 @@ Autor: Kevin Santillan
 Date: 25 nov, 2024
 
 ## Algunas flags de gcc
-## Algunas flags de gcc
+
 | Flag         | Descripción                                                                                 |
 |--------------|---------------------------------------------------------------------------------------------|
 | -Wall        | Activa la mayoria de advertencias comunes                                                   |
