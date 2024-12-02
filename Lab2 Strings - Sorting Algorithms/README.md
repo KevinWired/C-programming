@@ -46,7 +46,7 @@ printf("cadena: %s\n", cadena);
 ```
 Es muy importante no olvidarse de poner el `'\0'` final ya que de lo contrario `printf()` va a recorrer a `s3[]` por fuera de su rango hasta que aparezca un `'\0'` y al acceder a memoria inválida se producirá eventualmente una violación de segmento.<br>
 
-## Ordenación por selección (selection sort)
+## Ordenación por selección (selection_sort)
 
 Es el algoritmo de ordenación más sencillo en cuanto a su idea para llevar a cabo la ordenación pero no el más rápido.<br>
 `selection_sort` es adecuado para conjuntos pequeños o cuando la memoria es limitada, pero no es eficiente para arreglos grandes debido a su costo cuadrático $O(n^{2})$.<br>
