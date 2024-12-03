@@ -17,6 +17,7 @@
  */
 bool goes_before(player_t x, player_t y);
 
+
 /**
  * @brief    Checks if the array 'a' is in ascending order according
  *           to the goes_before function
@@ -38,6 +39,8 @@ bool array_is_sorted(player_t atp[], unsigned int length);
  * @param[in]      length  Length of players array
  */
 void sort(player_t a[], unsigned int length);
+
+
 
 
 #endif
