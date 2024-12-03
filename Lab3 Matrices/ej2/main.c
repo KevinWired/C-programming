@@ -10,6 +10,7 @@
 
 /* Then, this project's includes, alphabetically ordered */
 #include "array_helpers.h"
+#include "weather_utils.h"
 
 /**
  * @brief print usage help
@@ -50,6 +51,10 @@ char *parse_filepath(int argc, char *argv[]) {
     return (result);
 }
 
+static void line_spacing() {
+    printf("\n\n");
+}
+
 /**
  * @brief Main program function
  *
@@ -73,5 +78,26 @@ int main(int argc, char *argv[]) {
     /* show the ordered array in the screen */
     array_dump(array);
 
+    // Show the minimun temperature recorded in cba.
+    line_spacing();
+    int minimun = historycal_min(array);
+    printf("The minimum temp. recorded (1980–2016) in Córdoba city: %d\n.", minimun);
+
+    // Show maximum temperatures by year.
+    line_spacing();
+    int output[YEARS];
+    max_temp_array(array, output);
+    for (unsigned int i = 0; i<YEARS; i++) {
+        printf("The maximum temp. recorded in Córdoba city for the year %d was: %d\n", (i + FST_YEAR), output[i]);
+    }
+
+    // Show rainiest months according to the year.
+    const char *months[] = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
+    line_spacing();
+    month_t rm[YEARS];
+    rainy_month_array(array, rm);
+    for (unsigned int i = 0; i<YEARS; i++) {
+        printf("The rainiest month in Cordoba for the year %d was: %s\n", (i + FST_YEAR), months[rm[i]]);
+    }
     return (EXIT_SUCCESS);
 }
