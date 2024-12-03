@@ -1,7 +1,7 @@
 # Laboratorio #3: Parsing & Matrices
 * Autor: Kevin Santillan
 * Date: 2 dic, 2024
-* Last Update: 2 dic, 2024
+* Last Update: 3 dic, 2024
 
 ## Parsing 
 
@@ -13,7 +13,7 @@ Entonces `%[^;]` leera Juan Carlos deteniendose en el punto y coma (;).<br>
 
 * Otro ejemplo `%[^\n]` leera hasta que el usuario presione enter.<br>
 
-** fscanf **<br>
+**fscanf**<br>
 
 La función `fscanf` automáticamente saltea los espacios y caracteres `\n` hasta encontrar los datos indicados por el patrón (o falla al encontrar un dato que no respete el patrón indicado). Luego de leer los datos, el cursor de lectura se posiciona justo después de los datos leídos.<br>
 

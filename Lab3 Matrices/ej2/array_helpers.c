@@ -58,7 +58,9 @@ void array_from_file(WeatherTable array, const char *filepath) {
             exit(EXIT_FAILURE);
         }
         Weather weather = weather_from_file(file);
-        /* Completar acá: Guardar la medición de clima en el arreglo multidimensional */
+        // Guardar la medición de clima en el arreglo tridimensional.
+        // Nota: {enero:=1, febrero:=2, ... diciembre:=12}, pero en C la indexación comienza en cero. Ajustamos esto con k_month-1.
+        array[k_year-FST_YEAR][k_month-1][k_day-FST_DAY] = weather;
     }
     fclose(file);
 }
