@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-
-#define MAX_SIZE 1000
+#include "scanfile.h"
 
 static void dump(char a[], unsigned int length) {
     printf("\"");
@@ -12,20 +11,14 @@ static void dump(char a[], unsigned int length) {
     printf("\n\n");
 }
 
-int main(/* -- completar-- */) {
-    FILE *file;
+int main(int argc, char *argv[]) {
     unsigned int indexes[MAX_SIZE];
     char letters[MAX_SIZE];
     char sorted[MAX_SIZE];
-    unsigned int length=0; 
-    //  .----------^
-    //  :
-    // Debe guardarse aqui la cantidad de elementos leidos del archivo
-    
-    /* -- completar -- */
-
+    char *path = parse_filepath(argc, argv);
+    unsigned int length = data_from_file(path, indexes, letters, MAX_SIZE);
+    phrase_builder(letters, sorted, indexes, length);
     dump(sorted, length);
-
     return EXIT_SUCCESS;
 }
 
