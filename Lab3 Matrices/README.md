@@ -18,7 +18,7 @@ Entonces `%[^;]` leera Juan Carlos deteniendose en el punto y coma (;).<br>
 La función `fscanf` automáticamente saltea los espacios y caracteres `\n` hasta encontrar los datos indicados por el patrón (o falla al encontrar un dato que no respete el patrón indicado). Luego de leer los datos, el cursor de lectura se posiciona justo después de los datos leídos.<br>
 
 Si estamos trabajando con archivos y de antemano se conoce el patrón que tiene y sigue cada una de sus líneas resulta elegante definir una macro;
-por ejemplo supongamos que un archivo de texto tiene los datos de sus reglones formateados como <unsigned int>:<char>:#<int>, entonces podemos hacer algo como:
+por ejemplo supongamos que un archivo de texto tiene los datos de sus reglones formateados como `<unsigned int>`:`<char>`:#`<int>`, entonces podemos hacer algo como:
 
 ```C
 #define "%u:%c:#%d\n"
