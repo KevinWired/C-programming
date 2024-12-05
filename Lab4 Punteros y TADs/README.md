@@ -9,6 +9,7 @@
 Una estructura de datos dínamica puede crecer o decrecer en tiempo de ejecución.
 Un arreglo en C es una estructura estática, porque al declararlo se debe indicar cuantos elementos va a tener y ese número de elementos no cambia mientras exista el arreglo. En contraste las estructuras dinámicas no tienen esa limitación.<br>
 Dentro de la memoria de la computadora cada dato almacenado ocupa una o más celdas contiguas de memoria. El número de celdas de memoria requeridas para almacenar un dato depende de su tipo.<br>
+
 **Punteros**<br>
 Un puntero es variable cuyo contenido no es un dato, sino la dirección de memoria donde está almacenado un dato. Tienen diferentes propositos como pueden ser:<br>
 * Cadenas de caracteres.<br>
