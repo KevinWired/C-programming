@@ -97,7 +97,7 @@ int main(int argc, char *argv[]) {
         atp_dump(atp, length);
 
         /* show the cpu time in seconds used to sort the array */
-        printf("\ncpu time used to sort the array: %f seconds.\n", used_cpu_time);
+        printf("\nCPU time used to sort the array: %f seconds.\n", used_cpu_time);
     }
 
     /* check if it is sorted */

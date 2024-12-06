@@ -14,22 +14,34 @@ print_array(int a[], size_t length) {
     printf("]\n");
 }
 
+static void
+line_spacing(){
+	printf("\n\n");
+}
+
+
 int main(void) {
+    // El arreglo (arr) es estático está definido en el stack.
     int arr[ARRAY_SIZE] = {7, 4, 1, 3, 9, 3, 5};
-    int *p=NULL;
-    printf("before: ");
+    int* p = NULL;
+    printf("Before: ");
     print_array(arr, ARRAY_SIZE);
-    /* ---------------------------- Reescribir ---------------------------- */
-    //
-    // Se pueden agregar cosas antes del `for` de ser necesario
-    //
+
+	line_spacing();
+	p = arr;
+    p = calloc(ARRAY_SIZE, sizeof(int));
+	if (p == NULL) {
+	    printf("Error allocating memory.\n");
+	    return EXIT_FAILURE;
+	}
+
     for (unsigned int i=0u; i < ARRAY_SIZE; i++) {
-        p = &arr[i];  // FIXME: Se usa operador &
-        *p = 0;       // FIXME: Se usa operador *
+        arr[i] = p[i];
     }
-    /* -------------------------------------------------------------------- */
-    printf("after : ");
+
+    printf("After : ");
     print_array(arr, ARRAY_SIZE);
+    free(p); // Liberamos el bloque de memoria que se reservo.
 
     return EXIT_SUCCESS;
 }

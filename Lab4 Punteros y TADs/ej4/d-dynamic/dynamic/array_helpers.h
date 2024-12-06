@@ -32,4 +32,6 @@ int *array_from_file(const char *filepath, size_t *length);
 
 */
 
+void delete_array(int* array); 	// Free memory reserved by calloc(), malloc(), etc.
+
 #endif

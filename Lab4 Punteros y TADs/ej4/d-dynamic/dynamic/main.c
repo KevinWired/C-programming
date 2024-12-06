@@ -48,17 +48,14 @@ int main(int argc, char *argv[]) {
     /* parse the filepath given in command line arguments */
     filepath = parse_filepath(argc, argv);
     
-    size_t length=0;
+    size_t length = 0;
     // parse the file and returns the array storing the actual size in <length>
-    int *array=array_from_file(filepath, &length);
+    int* array =array_from_file(filepath, &length);
     
     /*dumping the array*/
     array_dump(array, length);
-    
-    // 
-    // COMPLETAR: Liberar la memoria usada por <array>
-    //
-    
+	delete_array(array); // Free memory.
+
     return EXIT_SUCCESS;
 }
 

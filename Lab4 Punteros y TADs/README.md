@@ -148,3 +148,50 @@ int main()
 // Retornando el puntero: 0x5d6e16fef010
 // Valor apuntado: 9.000000
 ```
+
+## Algunas funciones para la gestión de memoria dinámica
+Cuando se invocan `malloc()` o `calloc()`, estas funciones asignan un bloque de memoria y se aseguran de que el puntero devuelto esté alineado para cualquier tipo de dato nativo. Si hay algun fallo el puntero devuelto apunta a `NULL`
+
+| Función 	| Resumen 																															 |
+|-----------|------------------------------------------------------------------------------------------------------------------------------------|	
+| `calloc` 	| Reserva un bloque de memoria para almacenar $N$ elementos de tamaño $M$ bytes y devuelve un puntero a void al comienzo del bloque. |
+| `malloc` 	| Rerserva un bloque de memoria de tamaño $M$ bytes y retorna un puntero a void al coomienzo del bloque. 							 |
+| `realloc`	| Cambia el tamaño de un bloque de memoria apuntado por puntero (previamente asignado). Devuelve un puntero void al comienzo.		 |
+| `free`	| Libera el bloque de memoria que fue reservado previamente. 																		 |
+
+**Una diferencia entre calloc y malloc**<br>
+Cuando decimos que `calloc` "inicializa todos los bytes de la memoria asignada con el valor 0", significa que cada uno de los bloques de memoria que reserva está configurado con ceros binarios (0x00). Esto garantiza que la memoria recién asignada no contiene "basura" (datos residuales que podrían estar en la memoria si se usa `malloc`). Ejemplo:<br>
+
+* Para enteros `int` los valores iniciales serán 0.<br>
+* Para flotantes `float` los valores iniciales serán 0.0.<br>
+* Para caracteres `char` los valores iniciales serán el carácter nulo (`'\0'`).<br>
+
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	int n = 5;
+	int *arr = (int *)calloc(n, sizeof(int));
+
+	if (arr == NULL) {
+		printf("No se pudo asignar memoria.\n");
+		return 1;
+	}
+
+	for (int i = 0; i < n; i++) {
+		printf("arr[%d] = %d\n", i, arr[i]);
+	}
+
+	free(arr); // Liberamos la memoria asignada.
+	return 0;
+}
+// Output:
+// arr[0] = 0
+// arr[1] = 0
+// arr[2] = 0
+// arr[3] = 0
+// arr[4] = 0
+```
+
