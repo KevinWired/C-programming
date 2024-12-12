@@ -4,7 +4,7 @@
 #include <stdbool.h>
 
 /* counter as a pointer to structs to guarantee encapsulation */
-typedef struct _counter * counter;
+typedef struct _counter* counter;
 
 
 /* Constructors */

@@ -31,20 +31,41 @@ char *parse_filepath(int argc, char *argv[]) {
     return (result);
 }
 
+// valgrind --leak-check=full ./average ./input/all-positive-100.in
 
 float average(list l) {
-/*
-    Needs implementation.
-*/
+    unsigned int n = length(l);
+    float avg = 0;
+
+    if (empty_list(l)) {
+        return 0;
+    }
+
+    list aux = copy_list(l); // Creating a new list involves freeing dynamic memory.
+
+    while (!empty_list(aux)) {
+        avg += (float) head(aux);
+        aux = tail(aux);
+    }
+
+    avg /= n;
+
+    destroy_list(aux); // Free memory for C.
+
+    return avg;
 }
 
+
+
+
 list array_to_list(int array[], unsigned int length) {
-    /* Initialize the list */
+	list l = create_list();	// Creating a new list involves freeing dynamic memory.
     for (unsigned int i = 0u; i < length; ++i) {
-        /* Add element to the list  */
+        l = append(l, *(array + i));
     }
-    /* Return list */
+	return (l);
 }
+
 
 int main(int argc, char *argv[]) {
     char *filepath = NULL;
@@ -66,6 +87,8 @@ int main(int argc, char *argv[]) {
 
     /* call the average function */
     printf("The average is: %.2f \n", average(l));
+	
+	destroy_list(l); // Free memory for C.
 
     return (EXIT_SUCCESS);
 }
