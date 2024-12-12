@@ -31,7 +31,6 @@ char *parse_filepath(int argc, char *argv[]) {
     return (result);
 }
 
-// valgrind --leak-check=full ./average ./input/all-positive-100.in
 
 float average(list l) {
     unsigned int n = length(l);
@@ -42,20 +41,20 @@ float average(list l) {
     }
 
     list aux = copy_list(l); // Creating a new list involves freeing dynamic memory.
+    list temp;
 
     while (!empty_list(aux)) {
         avg += (float) head(aux);
+        temp = aux;
         aux = tail(aux);
+        free(temp); // Delete temp list.
     }
-
     avg /= n;
 
-    destroy_list(aux); // Free memory for C.
+    destroy_list(aux); // Ensure aux is properly freed.
 
     return avg;
 }
-
-
 
 
 list array_to_list(int array[], unsigned int length) {

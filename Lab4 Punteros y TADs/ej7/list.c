@@ -71,7 +71,7 @@ unsigned int length(list ls) {
 	}
 	list curr = ls;
 	unsigned int len = 0;
-	while(curr->next != NULL) {
+	while(curr != NULL) {
 		curr = curr->next;
 		len++;
 	}
@@ -141,18 +141,10 @@ list copy_list(list ls) {
 // === Destructors ===
 
 list destroy_list(list l) {
-  if(l != NULL) {
-    list a, b;
-    a = l;
-    b = a->next;
-    while(a != NULL) {
-      free(a);
-      a = b;
-      if(a != NULL) {
-        b = a->next;
-      }
-    }
-    l = a;
+  while (l != NULL) {
+    list temp = l;
+    l = l->next;
+    free(temp);
   }
-  return l;
+  return NULL;
 }

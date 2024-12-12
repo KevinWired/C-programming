@@ -1,7 +1,10 @@
 # Laboratorio #4: Punteros
+
 * Autor: Kevin Santillan
 * Date: 4 dic, 2024
-* Last Update: 5 dic, 2024
+* Last Update: 12 dic, 2024
+
+Erratas o comentarios a [kevin_santillan@mi.unc.edu.ar](mailto:kevin_santillan@mi.unc.edu.ar)
 
 
 ## Punteros
